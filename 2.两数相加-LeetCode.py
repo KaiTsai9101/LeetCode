@@ -24,12 +24,14 @@
 """
 
 # Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        # val为python内置函数，用于识别数字，识别完全部数字或非数字时停止读入字符串
         if l1.val + l2.val >= 10:  # 判断进位
             i = 1
         else:
