@@ -49,4 +49,5 @@ class Solution:
                             seen.add(triplet)
                             result.append([nums[i], nums[j], nums[k]])
 
+
         return result
