@@ -49,5 +49,39 @@ class Solution:
                             seen.add(triplet)
                             result.append([nums[i], nums[j], nums[k]])
 
-
         return result
+
+
+# 双指针求解
+class Solution:
+    def threeSum(self, nums: list[int]) -> list[list[int]]:
+        n = len(nums)
+        nums.sort()
+        ans = list()
+
+        # 因为nums已经排好序（nums.sort()）所以判断当a的值与上一个值相同时不进入当前循环（不重复）
+        for a in range(n):
+            if a > 0 and nums[a] == nums[a - 1]:
+                continue
+
+            c = n - 1  # c的索引指向最后一个元素
+            target = -nums[a]  # a + b + c = 0 -> b + c = -a
+
+            for b in range(a + 1, n):
+                if b > a + 1 and nums[b] == nums[b - 1]:  # 这里与a不重复同理
+                    continue
+
+                """                    
+                    因为已经排好序所以nums[b] + nums[c] > target时c向左移直到b与c相交，例：
+                    [-3, -2, -1, 0, 1, 5, 10]
+                    1.  a:0 b:1 c:6  -> -2 + 10 > 3 ->  c -= 1
+                    2.  a:0 b:1 c:5  -> -2 + 5 = 3
+                """
+                while b < c and nums[b] + nums[c] > target:
+                    c -= 1
+                if b == c:
+                    break
+                if nums[b] + nums[c] == target:
+                    ans.append([nums[a], nums[b], nums[c]])
+
+        return ans
