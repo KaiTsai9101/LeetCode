@@ -12,7 +12,6 @@
 
     输入：digits = "2"
 """
-
 # 暴力求解（三层循环）
 class Solution:
     def letterCombinations(self, digits: str):
@@ -70,4 +69,5 @@ class Solution:
         combination = []
         combinations = []
         backtrack(0)
+
         return combinations
