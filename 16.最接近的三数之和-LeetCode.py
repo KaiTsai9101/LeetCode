@@ -18,6 +18,7 @@
     输出：0
     解释：与 target 最接近的和是 0（0 + 0 + 0 = 0）。
 """
+# 双指针求解
 class Solution:
     def threeSumClosest(self, nums: List[int], target: int) -> int:
         n = len(nums)
@@ -55,5 +56,6 @@ class Solution:
                     while b0 < c and nums[b0] == nums[b]:
                         b0 += 1
                     b = b0
+
 
         return best     # 这里return要对好，对的是最外层循环
