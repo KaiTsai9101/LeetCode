@@ -31,7 +31,7 @@ class Solution:
                 if valid(A):
                     ans.append("".join(A))
             else:
-                A.append('(')       # 当n=2时这里可以理解为(((( -> ((() -> (()( -> (()) 的二进制加法
+                A.append('(')       # 当n=2时这里可以理解为(((( -> ((() -> (()( -> (()) ... 的二进制加法
                 generate(A)
                 A.pop()
                 A.append(')')
